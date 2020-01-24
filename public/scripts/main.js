@@ -39,10 +39,9 @@ function clear() {
 
 function log() {
   let logtext = document.getElementById('logtext').value;
-  var d = new Date(); // get time
 
-  db.collection("workout").add({
-    date: d,
+  db.collection("logs").add({
+    date: new Date(),
     text: logtext
   })
     .then(function (docRef) {
