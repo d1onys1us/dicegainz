@@ -7,6 +7,8 @@ firebase.initializeApp({
 
 // Initialize db
 var db = firebase.firestore();
+// Initialize login
+var provider = new firebase.auth.GoogleAuthProvider();
 
 let dic = {
   1: "Squat",
@@ -38,21 +40,45 @@ function clear() {
 }
 
 function log() {
-  let logtext = document.getElementById('logtext').value;
+  let logtext = document.getElementById('logtext');
 
   db.collection("logs").add({
     date: new Date(),
-    text: logtext
+    text: logtext.value
   })
     .then(function (docRef) {
-      console.log("Document written with ID: ", docRef.id);
+      alert("Workout logged!");
+      logtext.value = "";
+      //console.log("Document written with ID: ", docRef.id);
     })
     .catch(function (error) {
       console.error("Error adding document: ", error);
     });
 }
 
+function login() {
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    var token = result.credential.accessToken;
+    // The signed-in user info.
+    var user = result.user;
+    console.log("user:", user);
+    // ...
+  }).catch(function(error) {
+    console.log("error:", error);
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // The email of the user's account used.
+    var email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    var credential = error.credential;
+    // ...
+  });
+}
+
 // Add button listeners
 document.getElementById("roll").addEventListener("click", roll);
 document.getElementById("clear").addEventListener("click", clear);
 document.getElementById("log").addEventListener("click", log);
+document.getElementById("login").addEventListener("click", login);
