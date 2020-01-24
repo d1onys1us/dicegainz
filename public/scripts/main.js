@@ -5,21 +5,8 @@ firebase.initializeApp({
   projectId: 'dicegainz'
 });
 
+// Initialize db
 var db = firebase.firestore();
-
-db.collection("users").add({
-  first: "Alan",
-  middle: "Mathison",
-  last: "Turing",
-  born: 1912
-})
-  .then(function (docRef) {
-    console.log("Document written with ID: ", docRef.id);
-  })
-  .catch(function (error) {
-    console.error("Error adding document: ", error);
-  });
-
 
 let dic = {
   1: "Squat",
@@ -50,6 +37,23 @@ function clear() {
   exercises.innerHTML = "<b>Exercises:</b><br>";
 }
 
+function log() {
+  let logtext = document.getElementById('logtext').value;
+  var d = new Date(); // get time
+
+  db.collection("workout").add({
+    date: d,
+    text: logtext
+  })
+    .then(function (docRef) {
+      console.log("Document written with ID: ", docRef.id);
+    })
+    .catch(function (error) {
+      console.error("Error adding document: ", error);
+    });
+}
+
 // Add button listeners
 document.getElementById("roll").addEventListener("click", roll);
 document.getElementById("clear").addEventListener("click", clear);
+document.getElementById("log").addEventListener("click", log);
