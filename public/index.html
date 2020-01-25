@@ -2,7 +2,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no, user-scalable=no">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
 
@@ -18,15 +18,15 @@
 	<!-- Container -->
 	<div class="container-fluid">
 		<br>
-		<b>Today's Exercises:</b><br>
+		<h6><b>Today's Exercises:</b></h6>
 		<ul class="list-group">
 			<div id="exercises"></div>
 		</ul>
 		<br>
-		<p>Notes:</p>
-		<textarea class="form-control" id="logtext" rows="20"></textarea><br>
+		<h6><b>Notes:</b></h6>
+		<textarea class="form-control" id="notes" rows="10"></textarea><br>
 		<button id="roll" type="button" class="btn btn-dark">Reroll</button>&nbsp;
-		<button id="log" type="button" class="btn btn-danger">Submit</button>
+		<button id="start_stop" type="button" class="btn btn-success">Start</button>
 	</div>
 
 	<!-- Firebase -->
@@ -34,7 +34,7 @@
 	<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
 	<!-- Main Script -->
-	<script src="./js/main.js"></script>
+	<script src="./js/auth.js"></script>
 	<script src="./js/exercise.js"></script>
 </body>
 

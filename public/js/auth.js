@@ -10,23 +10,6 @@ var db = firebase.firestore();
 // Initialize login
 var provider = new firebase.auth.GoogleAuthProvider();
 
-function log() {
-  let logtext = document.getElementById('logtext');
-
-  db.collection("logs").add({
-    date: new Date(),
-    text: logtext.value
-  })
-    .then(function (docRef) {
-      alert("Workout logged!");
-      logtext.value = "";
-      //console.log("Document written with ID: ", docRef.id);
-    })
-    .catch(function (error) {
-      console.error("Error adding document: ", error);
-    });
-}
-
 function login() {
   firebase.auth().signInWithPopup(provider).then(function (result) {
     // This gives you a Google Access Token. You can use it to access the Google API.
@@ -70,5 +53,4 @@ firebase.auth().onAuthStateChanged(function (user) {
 });
 
 // Add button listeners
-document.getElementById("log").addEventListener("click", log);
 document.getElementById("login").addEventListener("click", login);
