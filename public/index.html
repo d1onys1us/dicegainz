@@ -7,17 +7,18 @@
 </head>
 
 <body>
-	<div class="container">
-		<h1>Dice Gainz</h1>
-		<a target="_blank" href="https://www.reddit.com/r/gzcl/comments/aqkdgo/happy_gday_gainerz/">What are Dice
-			Gainz?</a><br>
-		<a target="_blank" href="https://pasteboard.co/IGeAySa.png">General Gainz Cheatsheet</a><br>
-		<button id="login" type="button" class="btn btn-warning">Login</button>
+	<!-- Navbar -->
+	<nav class="navbar navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">Dice Gainz</a>
+		<button id="login" class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+	</nav>
+
+	<!-- Container -->
+	<div class="container-fluid">
+		<br>
 		<div id="exercises"><b>Exercises:</b><br></div>
 		<br>
-
 		<textarea class="form-control" id="logtext" rows="20"></textarea><br>
-
 		<button id="roll" type="button" class="btn btn-dark">Roll</button>&nbsp;
 		<button id="clear" type="button" class="btn btn-light">Clear</button>&nbsp;
 		<button id="log" type="button" class="btn btn-danger">Log</button>
@@ -28,7 +29,7 @@
 	<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
 	<!-- Main Script -->
-	<script src="./scripts/main.js"></script>
+	<script src="./js/main.js"></script>
 </body>
 
 </html>
