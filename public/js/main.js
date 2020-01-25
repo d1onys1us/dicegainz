@@ -60,10 +60,7 @@ function login() {
   firebase.auth().signInWithPopup(provider).then(function (result) {
     // This gives you a Google Access Token. You can use it to access the Google API.
     var token = result.credential.accessToken;
-    // The signed-in user info.
     var user = result.user;
-    console.log("user:", user);
-    // ...
   }).catch(function (error) {
     console.log("error:", error);
     // Handle Errors here.
@@ -77,8 +74,31 @@ function login() {
   });
 }
 
+function logout() {
+  firebase.auth().signOut().then(function () {
+    console.log("signed out!")
+  }, function (error) {
+    // An error happened.
+    console.log("logout error: " + error);
+  });
+}
+
+firebase.auth().onAuthStateChanged(function (user) {
+  if (user) {
+    document.getElementById("displayname").innerHTML = "Hi " + user.displayName + "!";
+    document.getElementById("login").innerHTML = "Logout";
+    document.getElementById("login").removeEventListener("click", login);
+    document.getElementById("login").addEventListener("click", logout);
+  } else {
+    document.getElementById("displayname").innerHTML = "";
+    document.getElementById("login").innerHTML = "Login";
+    document.getElementById("login").removeEventListener("click", logout);
+    document.getElementById("login").addEventListener("click", login);
+  }
+  document.getElementById("login").style = "display=visible;"; // make button visible
+});
+
 // Add button listeners
 document.getElementById("roll").addEventListener("click", roll);
 document.getElementById("clear").addEventListener("click", clear);
 document.getElementById("log").addEventListener("click", log);
-document.getElementById("login").addEventListener("click", login);
