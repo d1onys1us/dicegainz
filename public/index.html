@@ -4,29 +4,22 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body style="touch-action: manipulation;">
+<body>
 	<!-- Navbar -->
 	<nav class="navbar navbar-dark bg-dark">
-		<a style="margin-right:0;" class="navbar-brand" href="#">Dice Gainz</a>
+		<a id="home" style="color:white;cursor:pointer;" style="margin-right:0;" class="navbar-brand">Dice Gainz</a>
+		<ul id="profilelink" class="navbar-nav">
+		</ul>
 		<span id="displayname" class="navbar-text">
 		</span>
 		<button style="display:none;" id="login" class="btn btn-outline-success my-2 my-sm-0" type="submit"></button>
 	</nav>
 
 	<!-- Container -->
-	<div class="container-fluid">
-		<br>
-		<h6><b>Today's Exercises:</b></h6>
-		<ul class="list-group">
-			<div id="exercises"></div>
-		</ul>
-		<br>
-		<h6><b>Notes:</b></h6>
-		<textarea class="form-control" id="notes" rows="10"></textarea><br>
-		<button id="roll" type="button" class="btn btn-dark">Reroll</button>&nbsp;
-		<button id="start_stop" type="button" class="btn btn-success">Start</button>
+	<div id="main" class="container-fluid">
 	</div>
 
 	<!-- Firebase -->

@@ -1,0 +1,8 @@
+body {
+  touch-action: manipulation;
+}
+
+#profile {
+  cursor: pointer;
+}
+
