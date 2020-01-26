@@ -61,9 +61,9 @@ function choose_lifts() {
     exercises.innerHTML += '<li class="list-group-item">' + t1x + '</li>' + '<li class="list-group-item">' + t2x + '</li>' + '<li class="list-group-item">' + t3x + '</li>';
 }
 
+let start_time = null;
 function start_stop() {
     let start_stop_button = document.getElementById("start_stop");
-    let start_time = null;
     if (start_stop_button.innerText == "Start") {
         // Start Clicked
         start_stop_button.innerText = "Stop";
@@ -74,7 +74,7 @@ function start_stop() {
         start_stop_button.innerText = "Start";
         start_stop_button.className = "btn btn-success";
         let end_time = new Date();
-        let notes = document.getElementById('notes');
+        let notes = document.getElementById('notes').value;
         let list_of_exercises = [t1x, t2x, t3x];
 
         // Log workout in database
